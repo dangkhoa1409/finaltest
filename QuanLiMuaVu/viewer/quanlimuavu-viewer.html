@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="quanlimuavu-viewer.css">
+    <title>Quản lý mùa vụ</title>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="sidebar d-md-block collapse navbar-collapse bg-dark" id="sidebar">
+            <div class="d-flex justify-content-between border-bottom border-secondary">
+                <h2 class="text-white p-3 title">Quản lý mùa vụ</h2>
+            </div>
+            <ul class="pl-0">
+                <li class="sidebar-list py-2"><a class="d-block text-white text-decoration-none" href="/QuanLiNguoiDung/dashboard.html"> <i class="mr-3 ml-3 fa-solid fa-right-to-bracket"></i> Đăng xuất </a></li>
+            </ul>
+        </div>
+        <div class="content w-100 bg-light">
+            <nav class="bg-white w-100 px-3 py-2">
+                <div class="row mx-0 bg-white">
+                    <div class="d-flex justify-content-between">
+                        <button type="button" class="btn text-white bg-white d-md-none navbar-toggler navbar-light" data-toggle="collapse" data-target="#sidebar">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="input-group border rounded d-none d-md-flex row ml-1 mb-3">
+                    <div class="col-11 px-0 outline-none">
+                        <input type="text" class="form-control border-0" id="search" placeholder="Search Here" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group-prepend mt-1 col-1 pl-5 search-icon">
+                    <span class="input-group-text bg-white border-0" id="loop" onclick=searchElement()><i class="fa-solid fa-magnifying-glass"></i></span>
+                    </div>
+                </div>
+            </nav>
+            <table class="table text-center">
+                <thead>
+                  <tr>
+                    <th scope="col" class="border">ID</th>
+                    <th scope="col" class="border">Tên mùa vụ</th>
+                    <th scope="col" class="border">Ngày bắt đầu</th>
+                    <th scope="col" class="border">Ngày kết thúc</th>
+                    <th scope="col" class="border">Sản lượng thực tế</th>
+                    <th scope="col" class="border">Sản lượng ước lượng</th>
+                    <th scope="col" class="border">Nhận xét mùa vụ</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="./js-quanlimuavu-viewer.js"></script>
+</body>
+</html>

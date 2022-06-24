@@ -1,0 +1,99 @@
+body{
+    font-family: monospace;
+    background-color: #FF6F61;
+}
+
+.main{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    animation: show 4.5s linear;
+    overflow: hidden;
+    margin-top: 100px;
+}
+
+.text-wrapper{
+    text-align: center;
+    height: 140px;
+}
+
+.text{
+    display: block;
+    margin: 12px 0;
+    color: #fff;
+}
+
+label.text{
+    font-size: 18px;
+}
+
+@keyframes show{
+    0%{
+        height: 0;
+    }
+    100%{
+        height: 40vh;
+    }
+}
+
+.selection{
+    padding: 20px 0 10px 0;
+}
+
+.selection a{
+    margin: 0 50px;
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    min-width: 280px;
+    text-align: center;
+    padding: 8px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    transition: 0.3s linear;
+}
+
+.selection a:hover{
+    box-shadow: -2px -3px 8px rgba(0, 0, 0, 0.15),
+                2px 3px 8px rgba(0, 0, 0, 0.15);
+    transform: scale(1.1);
+}
+
+footer{
+    font-size: 18px;
+    position: fixed;
+    bottom: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #fff;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+}
+
+.fill{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    z-index: 1;
+}
+
+.no-click{
+    pointer-events: none; 
+    /* bg đè lên content */
+}
+
+@keyframes snow{
+    0%{
+        background-position: 0 0,0 0,0 0;
+    } 100% {
+        background-position: 250px 1000px,400px 400px,300px 300px;
+    }
+}
+.effect-snow{ 
+    background-image: url("https://1.bp.blogspot.com/-FauvHuCRK1A/X9fM7I_m7rI/AAAAAAAAD9Y/bSQqaXO2WiEkYLxGldD2PNBerWWA4D79QCLcBGAsYHQ/s500/snow1.png"), url("https://1.bp.blogspot.com/-mNbKOuntyhI/X9fM7A_1nnI/AAAAAAAAD9U/sW7RE_FrrBkrfcST9YbkE7TkhE1ef5PEQCLcBGAsYHQ/s400/snow2.png");
+    animation: snow 20s linear infinite;
+}

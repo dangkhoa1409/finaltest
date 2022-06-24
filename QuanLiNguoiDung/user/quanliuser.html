@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="css-qluser.css">
+    <title>Quản lý người dùng</title>
+</head>
+<body>        
+<body>
+    <div id="wrapper">
+        <div class="sidebar d-md-block collapse navbar-collapse bg-dark" id="sidebar">
+            <div class="d-flex justify-content-between border-bottom border-secondary">
+                <h2 class="text-white p-3 title">Quản lý người dùng</h2>
+            </div>
+            <ul class="pl-0">
+                <li class="sidebar-list py-2"><a class="d-block text-white text-decoration-none" href="../dashboard.html"> <i class="h4 ml-3 mr-4 fa-solid fa-chart-line"></i> Đăng xuất</a></li>
+                <li class="sidebar-list py-2"><a class="d-block text-white text-decoration-none" href="/QuanLiMuaVu/staff-owner/quanlimuavu.html">  <i class="h4 ml-3 mr-4 fa-solid fa-calendar-days"></i></i>Quản lý mùa vụ</a></li>
+            </ul>
+        </div>
+        <div class="content w-100 bg-light">
+            <nav class="bg-white w-100 px-3 py-2">
+                <div class="row mx-0 bg-white">
+                    <div class="d-flex justify-content-between">
+                        <button type="button" class="btn text-white bg-white d-md-none navbar-toggler navbar-light" data-toggle="collapse" data-target="#sidebar">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    <div class="input-group border rounded d-none d-md-flex row ml-1">
+                        <div class="col-11 px-0 outline-none">
+                            <input type="text" class="form-control border-0" id="search" placeholder="Search Here" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group-prepend mt-1 col-1 pl-5 search-icon">
+                        <span class="input-group-text bg-white border-0" id="loop" onclick=searchElement()><i class="fa-solid fa-magnifying-glass"></i></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button class="btn btn-primary m-3" id="add" type="button">Add</button>
+                    </div>
+                </div>
+            </nav>
+            <table class="table text-center">
+                <thead>
+                  <tr>
+                    <th scope="col" class="border">ID</th>
+                    <th scope="col" class="border">Tên người dùng</th>
+                    <th scope="col" class="border">User người dùng</th>
+                    <th scope="col" class="border">Password</th>
+                    <th scope="col" class="border">Role</th>
+                    <th scope="col" class="border">Sửa/Xoá</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <!-- Them -->
+        <div class="addModal">
+            <h2 class="text-center">Thêm người dùng</h2>
+            <input class="nameModal" type="text" required placeholder="Nhập tên người dùng">
+            <input class="userModal" type="text" required placeholder="Nhập User">
+            <input class="unit" type="text" disabled placeholder="Bạn có thể sử dụng chữ và số (không dùng ký tự đặc biệt)">
+            <input class="passModal" type="datetime" placeholder="Nhập Password">
+            
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="inputGroupSelect01">Role</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01">
+                  <option selected> Choose... </option>
+                  <option value="Owner"> Owner </option>
+                  <option value="Staff"> Staff </option>
+                  <option value="Viewer"> Viewer </option>
+                </select>
+              </div>
+
+            <div class="button d-flex justify-content-end">
+                <button class="addCancel btn btn-secondary">Cancel</button>
+                <button id="addSuccess" class="btn btn-primary ml-3">Add</button>
+            </div>
+        </div>
+        <!-------------->
+        <!-- Sua -->
+        <div class="editModal">
+            <h2 class="text-center">Sửa người dùng</h2>
+            <in$("put type="text" disabled class="txtId">
+            <label >Nhập tên người dùng mới</label>
+            <input class="nameEdit" type="text" placeholder="Nhập tên người dùng mới">
+            <label >Nhập User mới</label>
+            <input class="userEdit" type="dateStart" placeholder="Nhập User mới">
+            <label >Nhập Password mới</label>
+            <input class="passEdit" type="dateEnd" placeholder="Nhập Password mới">
+            <div class="button d-flex justify-content-end">
+                <button class="editCancel btn btn-secondary">Cancel</button>
+                <button id="editSuccess" class="btn btn-primary ml-3">Edit</button>
+            </div>
+        </div>
+        <!-------------->
+    </div>
+
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script src="./js-qluser.js"></script>
+</body>
+</html>

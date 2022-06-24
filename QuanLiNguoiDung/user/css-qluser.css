@@ -1,0 +1,66 @@
+body{
+    font-family: monospace;
+}
+
+.sidebar{
+    width: 100%;
+}
+
+ul{
+    list-style: none;
+    padding-left: 10px;
+}
+
+.sidebar{
+    transition: all 0.7s linear;
+}
+
+.sidebar-list:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+}   
+
+.search-icon{
+    cursor: pointer;
+}
+
+.feature{
+    margin: 0 4px;
+    border-radius: 5px;
+}
+
+.addModal,
+.editModal,
+.finalModal{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% ,-50%);
+    width: 600px;
+    height: fit-content;
+    display: none;
+    background-color: #fff;
+    padding: 24px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.1),
+                -5px -5px 12px rgba(0, 0, 0, 0.2);
+    animation: slideDown 0.35s linear;
+}
+
+@keyframes slideDown{
+    from{
+        top: 0;
+        opacity: 0;
+    }to{
+        top: 50%;
+        opacity: 1;
+    }
+}
+
+.addModal input,
+.editModal input,
+.finalModal input{
+    display: block;
+    width: 100%;
+    margin: 12px 0;
+    padding: 3px 0 3px 10px;
+}
