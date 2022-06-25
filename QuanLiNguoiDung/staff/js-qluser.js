@@ -9,45 +9,40 @@ class Student {
     }
 }
 var arrEle;
-var loop = $(".search-icon");
-        loop.click(function(id) {
-            var value = $("#search").val();
-            var id = $("#.txtId");
-            console.log(id);
-            console.log(value);
-        })
-        function loadData() {
-            $(".table tbody").empty();
-            //Sau khi update xong thi xoa thanh phan cu~ tren HTML
-            $.ajax({
-            url: "https://627dc59db75a25d3f3ab7c94.mockapi.io/user",
-            type: "GET",
-            dataType: "json",
-            success: function(data) {
-                arrEle = data;
-                let emptyStr = '';
-                for(let i=0 ; i<data.length ; i++){
-                    let edit = `<button class="feature" id="edit" onclick=edit(${data[i].id}) type="button"><i class="fa-solid fa-pen-to-square"></i></button>`;
-                    let remove = `<button class="feature" id="remove" type="button" onclick=remove(${data[i].id})><i class="fa-solid fa-trash-can"></i></button>`;
-                    let strTemp = "<tr> <th scope='row'>" + data[i].id + "</th>"
-                        + "<td class='border'>" + data[i].name + "</td>"
-                        + "<td class='border'>" + data[i].username + "</td>"
-                        + "<td class='border'>" + data[i].password+ "</td>"
-                        + "<td class='border'>" + data[i].role + "</td>"
-                        + "<td class='border'>" + edit + remove + "</td> </tr>";
-                        emptyStr += strTemp;
-                }
-                $(".table tbody").append(emptyStr); //append : mở rộng 
-                }
-            });
+function loadData() {
+    $(".table tbody").empty();
+    $.ajax({
+    url: "https://627dc59db75a25d3f3ab7c94.mockapi.io/user",
+    type: "GET",
+    dataType: "json",
+    success: function(data) {
+        console.log(data);
+        arrEle = data;
+        let emptyStr = '';
+        for(let i=0 ; i < data.length ; i++){
+            let edit = `<button class="feature" id="edit" onclick=edit(${data[i].id}) type="button"><i class="fa-solid fa-pen-to-square"></i></button>`;
+            let picture = `<input type="image" src="${data[i].picture}" alt="" class='api-picture'>`;
+            let strTemp = "<tr> <th scope='row' class='align-middle'>" + data[i].id + "</th>"
+                + "<td class='border align-middle'>" + data[i].name + "</td>"
+                + "<td class='border align-middle'>" + data[i].username + "</td>"
+                + "<td class='border align-middle'>" + data[i].password+ "</td>"
+                + "<td class='border align-middle'>" + data[i].role + "</td>"
+                + "<td class='border align-middle'>" + picture + "</td>"
+                + "<td class='border align-middle'>" + edit + "</td> </tr>";
+                emptyStr += strTemp;
         }
-        loadData();
+        $(".table tbody").append(emptyStr);
+        }
+    });
+}
+loadData();
 $("#add").click(function(){
     $(".addModal").show();
 })
 $(".addCancel").click(function(){
     $(".addModal").hide();
 })
+
 // add user
 let role = "";
 $(document).ready(function () {
@@ -74,6 +69,7 @@ $(document).ready(function () {
     });
 });
 // -------
+
 // edit user
 $(".editCancel").click(function(){
     $(".editModal").hide()
@@ -108,6 +104,7 @@ function edit(id){
     }
 };
 // ----------
+
 // remove user
 function remove(id){
     $.ajax({
@@ -119,7 +116,7 @@ function remove(id){
     })
 };
 
-
+// Find user
 function searchElement() {
     $(".table tbody").empty();
     $.ajax({
@@ -134,19 +131,25 @@ function searchElement() {
         } else {
             if( value < 1 ) {
                 alert("Vui lòng nhập id > 0");
+                $("#search").val('');
                 preventDefault(); //BUG
-            } else {
+            } else if( value >= 1 && value <= data.length) {
                 value -= 1;
+            } else {
+                alert(`Vui lòng nhập dữ liệu <= ${data.length}`);
+                $("#search").val('');
             }
         }
         let edit = `<button class="feature" id="edit" onclick=edit(${data[value].id}) type="button"><i class="fa-solid fa-pen-to-square"></i></button>`;
         let remove = `<button class="feature" id="remove" type="button" onclick=remove(${data[value].id})><i class="fa-solid fa-trash-can"></i></button>`;
-        let strTemp = "<tr> <th scope='row'>" + data[value].id + "</th>"
-            + "<td class='border'>" + data[value].name + "</td>"
-            + "<td class='border'>" + data[value].username + "</td>"
-            + "<td class='border'>" + data[value].password + "</td>"
-            + "<td class='border'>" + data[value].role + "</td>"
-            + "<td class='border'>" + edit + remove + "</td> </tr>";
+        let picture = `<img class="api-picture" src="${data[value].picture}" alt="">`;
+        let strTemp = "<tr> <th scope='row' class='align-middle'>" + data[value].id + "</th>"
+            + "<td class='border align-middle'>" + data[value].name + "</td>"
+            + "<td class='border align-middle'>" + data[value].username + "</td>"
+            + "<td class='border align-middle'>" + data[value].password + "</td>"
+            + "<td class='border align-middle'>" + data[value].role + "</td>"
+            + "<td class='border align-middle'>" + picture + "</td>"
+            + "<td class='border align-middle'>" + edit + remove + "</td> </tr>";
         emptyStr += strTemp;
         $(".table tbody").append(emptyStr); 
         }

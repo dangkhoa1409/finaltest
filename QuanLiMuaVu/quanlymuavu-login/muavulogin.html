@@ -6,27 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet">
-    <link rel="stylesheet" href="css-login.css">
+    <link rel="stylesheet" href="./css-login.css">
   </head>
   <body>
     <div class="container shadow p-3 mb-5 bg-white rounded">
       <div class="row form-group title text-center"> Trước tiên bạn phải đăng nhập </div>
       <div class="box-login" >
-        <div class="form-field">
+        <div class="form-field d-flex">
           <input type="text" class="form-control form-input user" placeholder=" " id="user">
           <label for="name " class="form-label"> Username...</label>
+          <i class="fas fa-eye" id="eyes" style="cursor: pointer; visibility: hidden;"></i>
         </div> 
-    
-        <div class="form-field">
+        <div class="form-field d-flex align-items-center">
           <input type="password" class="form-control form-input" placeholder=" " id="pass">
           <label for="name " class="form-label"> Password...</label>
+          <i class="fas fa-eye" id="eyes" style="cursor: pointer;" onclick="checkpass()"></i>
         </div>
-        <i class="fas fa-eye" id="eyes" onclick="checkpass()"></i>
-
       </div>
       <div class="row">
-        <button type="button" class="btn btn-secondary btn-lg d-flex mx-auto" id="btn-login">
-          <a href="" class="lgin mx-auto p-1 w-100">Login</a> 
+        <button type="button" class="btn btn-secondary btn-lg d-flex mx-auto mt-2" id="btn-login">
+          <a href="" class="lgin mx-auto w-100 p-2">Login</a> 
         </button>
       </div>
       <div class="row form-group py-4" id="creat-acc">

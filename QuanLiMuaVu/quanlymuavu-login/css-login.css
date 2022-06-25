@@ -17,14 +17,17 @@ body{
     width: 70%;
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
+    margin: 0 auto
+}
+.lgin{
+    display: flex;
+    margin: 0 auto; 
+    text-align: center;
+    padding: 18px 32px;
+    font-size: 18px;
 }
 .box-login,#creat-acc{
     justify-content: center;
-}
-#btn-login{
-    width: 200px;
-    margin-top: 20px;
 }
 #btn-login a,#btn-back a{ 
     text-decoration: none;
@@ -37,14 +40,9 @@ body{
 #creat-acc a:hover{
     color: rgb(11, 10, 10);
 }
-.user{
-    margin-bottom: 20px;
-}
-i.fas{
+#eyes{
     position: relative; 
-    top:-37px;
-    left: 740px;
-    cursor: pointer;
+    margin-left: 12px;
 }
 
 /* xx */
@@ -61,11 +59,11 @@ i.fas{
 }
 .form-field{
     position: relative;
+    margin: 8px 0;
 }
 .form-label{
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    top: calc(50% - 10px);
     left: 11px;
     user-select: none;
     color: #999;
@@ -76,6 +74,7 @@ i.fas{
 .form-input:focus + .form-label{
     top: 0;
     padding: 0 5px;
+    transform: translateY(-50%);
     display: inline-block;
     background-color: white;
     color: #999;

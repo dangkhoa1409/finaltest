@@ -6,19 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link rel="stylesheet" href="css-qluser.css">
-    <title>Quản lý người dùng</title>
+    <link rel="stylesheet" href="./quanlimuavu.css">
+    <title>Quản lý mùa vụ</title>
 </head>
-<body>        
 <body>
     <div id="wrapper">
         <div class="sidebar d-md-block collapse navbar-collapse bg-dark" id="sidebar">
             <div class="d-flex justify-content-between border-bottom border-secondary">
-                <h2 class="text-white p-3 title">Quản lý người dùng</h2>
+                <h2 class="text-white p-3 title">Quản lý mùa vụ</h2>
             </div>
             <ul class="pl-0">
-                <li class="sidebar-list py-2"><a class="d-block text-white text-decoration-none" href="../dashboard.html"> <i class="h4 ml-3 mr-4 fa-solid fa-chart-line"></i> Đăng xuất</a></li>
-                <li class="sidebar-list py-2"><a class="d-block text-white text-decoration-none" href="/QuanLiMuaVu/staff-owner/quanlimuavu.html">  <i class="h4 ml-3 mr-4 fa-solid fa-calendar-days"></i></i>Quản lý mùa vụ</a></li>
+                <li class="sidebar-list py-2"><a class="d-block text-white text-decoration-none" href="/QuanLiNguoiDung/dashboard.html"><i class="h4 ml-3 mr-4 fa-solid fa-calendar-days"></i>Đăng xuất</a></li>
+                <li class="sidebar-list py-2"><a class="d-block text-white text-decoration-none" id="pages" href="/QuanLiNguoiDung/owner/quanliuser.html"><i class="h4 ml-3 mr-4 fa-solid fa-chart-line"></i>Quản lý người dùng</a></li>
             </ul>
         </div>
         <div class="content w-100 bg-light">
@@ -46,67 +45,61 @@
                 <thead>
                   <tr>
                     <th scope="col" class="border">ID</th>
-                    <th scope="col" class="border">Tên người dùng</th>
-                    <th scope="col" class="border">User người dùng</th>
-                    <th scope="col" class="border">Password</th>
-                    <th scope="col" class="border">Role</th>
-                    <th scope="col" class="border">Sửa/Xoá</th>
+                    <th scope="col" class="border">Tên mùa vụ</th>
+                    <th scope="col" class="border">Ngày bắt đầu</th>
+                    <th scope="col" class="border">Ngày kết thúc</th>
+                    <th scope="col" class="border">Sản lượng thực tế</th>
+                    <th scope="col" class="border">Sản lượng ước lượng</th>
+                    <th scope="col" class="border">Nhận xét mùa vụ</th>
+                    <th scope="col" class="border">Sửa/Kết thúc/Xoá</th>
                   </tr>
                 </thead>
                 <tbody>
                 </tbody>
             </table>
         </div>
-        <!-- Them -->
         <div class="addModal">
-            <h2 class="text-center">Thêm người dùng</h2>
-            <input class="nameModal" type="text" required placeholder="Nhập tên người dùng">
-            <input class="userModal" type="text" required placeholder="Nhập User">
-            <input class="unit" type="text" disabled placeholder="Bạn có thể sử dụng chữ và số (không dùng ký tự đặc biệt)">
-            <input class="passModal" type="datetime" placeholder="Nhập Password">
-            
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <label class="input-group-text" for="inputGroupSelect01">Role</label>
-                </div>
-                <select class="custom-select" id="inputGroupSelect01">
-                  <option selected> Choose... </option>
-                  <option value="Owner"> Owner </option>
-                  <option value="Staff"> Staff </option>
-                  <option value="Viewer"> Viewer </option>
-                </select>
-              </div>
-
+            <h2 class="text-center">Thêm mùa vụ</h2>
+            <input class="seasonName" type="text" required placeholder="Nhập tên mùa vụ">
+            <input class="quantityEstimated" type="text" required placeholder="Sản lượng ước tính">
+            <input class="unit" type="text" disabled placeholder="Đơn vị tính: Kg">
+            <input class="dateStart" type="datetime" placeholder="Ngày bắt đầu">
+            <input class="dateEnd d-none" type="datetime" placeholder="Ngày dự kiến thu hoạch" disabled>
+            <input class="quantity d-none" type="number" disabled>
+            <input class="state" type="text" disabled placeholder="State" value="Trạng thái: Trong mùa vụ">
             <div class="button d-flex justify-content-end">
                 <button class="addCancel btn btn-secondary">Cancel</button>
                 <button id="addSuccess" class="btn btn-primary ml-3">Add</button>
             </div>
         </div>
-        <!-------------->
-        <!-- Sua -->
         <div class="editModal">
-            <h2 class="text-center">Sửa người dùng</h2>
-            <in$("put type="text" disabled class="txtId">
-            <label >Nhập tên người dùng mới</label>
-            <input class="nameEdit" type="text" placeholder="Nhập tên người dùng mới">
-            <label >Nhập User mới</label>
-            <input class="userEdit" type="dateStart" placeholder="Nhập User mới">
-            <label >Nhập Password mới</label>
-            <input class="passEdit" type="dateEnd" placeholder="Nhập Password mới">
+            <h2 class="text-center">Sửa mùa vụ</h2>
+            <input type="text" disabled class="txtId">
+            <input class="seasonName" type="text" placeholder="Nhập tên mùa vụ mới">
+            <input class="dateStart" type="dateStart" placeholder="Nhập ngày bắt đầu mới">
+            <input class="dateEnd" type="dateEnd" placeholder="Nhập ngày kết thúc mới">
+            <input class="state" type="text" placeholder="Nhập trạng thái mới">
             <div class="button d-flex justify-content-end">
                 <button class="editCancel btn btn-secondary">Cancel</button>
                 <button id="editSuccess" class="btn btn-primary ml-3">Edit</button>
             </div>
         </div>
-        <!-------------->
+        <div class="finalModal">
+            <h2 class="text-center">Thông tin kết thúc mùa vụ</h2>
+            <input type="text" disabled class="txtId">
+            <input class="quantity" type="text" placeholder="Sản lượng đạt được">
+            <input class="state" type="text" placeholder="Nhập trạng thái kết thúc">
+            <input type="datetime" class="dateEnd" placeholder="Nhập thời gian kết thúc">
+            <div class="button d-flex justify-content-end">
+                <button class="finalCancel btn btn-secondary">Cancel</button>
+                <button id="finalSuccess" class="btn btn-primary ml-3">Check</button>
+            </div>
+        </div>
     </div>
 
-    <script
-    src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-    crossorigin="anonymous"></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-    <script src="./js-qluser.js"></script>
+    <script src="js-quanlimuavu.js"></script>
 </body>
 </html>

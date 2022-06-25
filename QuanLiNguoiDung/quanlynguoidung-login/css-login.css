@@ -29,10 +29,6 @@ body{
 .box-login,#creat-acc{
     justify-content: center;
 }
-#btn-login{
-    width: 200px;
-    margin-top: 20px;
-}
 #btn-login a,#btn-back a{ 
     text-decoration: none;
     color: white;
@@ -71,7 +67,7 @@ body{
     left: 11px;
     user-select: none;
     color: #999;
-    pointer-events: none;
+    pointer-events: none;   
     transition: .25s ease;
 }
 .form-input:not(:placeholder-shown) + .form-label,
@@ -80,6 +76,7 @@ body{
     padding: 0 5px;
     transform: translateY(-50%);
     display: inline-block;
-    background-color: white;
+    background-color: #fff;
+    line-height: 14px;
     color: #999;
 }

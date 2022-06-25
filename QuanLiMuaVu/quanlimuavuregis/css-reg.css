@@ -12,9 +12,9 @@ body{
 .pic{
     margin-top: -50px;
 }
-.choose,.choose-pic{
+.choose{
     margin-top: -130px;
-    margin-left: 235px;
+    margin-left: 155px;
     font-size: 20px;
 }
 .pos{
@@ -31,6 +31,9 @@ body{
 }
 .row-btn{
     text-align: center;
+}
+.custom-select{
+    margin-left: 28px;
 }
 #btn-back a, #btn-reg a{
     color: aliceblue;

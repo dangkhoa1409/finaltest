@@ -2,7 +2,6 @@
 var dataCopy; //tạo biến copy data server trả về
 function loadData() {
     $(".table tbody").empty();
-    //Khi loaddata xong thì xoá các thành phần đã có trên trình duyệt để tránh bị trùng lắp
     $.ajax({
         url: "https://62b269f320cad3685c8db9c1.mockapi.io/farmManager",
         type: "GET",
@@ -35,7 +34,7 @@ function loadData() {
                     + "<td class='border'>" + edit + final + remove + "</td> </tr>";
                     emptyStr += strTemp;
             }
-            $(".table tbody").append(emptyStr); //append : mở rộng 
+            $(".table tbody").append(emptyStr);
         }
     });
 }
@@ -57,9 +56,13 @@ function searchElement() {
         } else {
             if( value < 1 ) {
                 alert("Vui lòng nhập id > 0");
+                $("#search").val('');
                 preventDefault(); //BUG
-            } else {
+            } else if( value >= 1 && value <= data.length) {
                 value -= 1;
+            } else {
+                alert(`Vui lòng nhập dữ liệu <= ${data.length}`);
+                $("#search").val('');
             }
         }
 

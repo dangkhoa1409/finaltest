@@ -8,6 +8,7 @@ $.ajax({
     success:function(data){
         let showAlert = true;
         for(let i = 0; i < data.length; i++){
+            console.log(data);
             $(".lgin").click(function(){
                 let username = $("#user").val();
                 let pass = $("#pass").val();
@@ -20,20 +21,15 @@ $.ajax({
                     }
                 } else {
                     if(username == data[i].username && pass == data[i].password){
-                        if(data[i].role == 'Owner' || data[i].role == 'Staff') {
-                            login.attr("href","../user/quanliuser.html");
+                        if(data[i].role == 'Owner') {
+                            login.attr("href", "../owner/quanliuser.html");
+                        } else if(data[i].role == 'Staff') {
+                            login.attr("href", "../staff/quanliuser.html")
                         } else {
                             alert("Bạn không có quyền đăng nhập vào đây");
                         }
                     }
                 }
-                // if(username != data[i].username && pass != data[i].password) {
-                //     if(showAlert2) {
-                //         alert("Nhập sai thông tin vui lòng nhập lại");
-                //         showAlert2 = false;
-                //         login.attr("href", "");
-                //     }
-                // }
             })
         }
         

@@ -21,9 +21,11 @@ $.ajax({
                 } else {
                     if(username === data[i].username && pass === data[i].password){
                         console.log(data[i].role);
-                        if(data[i].role == 'Owner' || data[i].role == 'Staff'){
-                            login.attr("href","../staff-owner/quanlimuavu.html");
-                        } else {   
+                        if(data[i].role == 'Owner'){
+                            login.attr("href","../owner/quanlimuavu.html");
+                        } else if(data[i].role == 'Staff') {   
+                            login.attr("href","../staff/quanlimuavu.html");
+                        } else{
                             login.attr("href","../viewer/quanlimuavu-viewer.html");
                         }
                     } 

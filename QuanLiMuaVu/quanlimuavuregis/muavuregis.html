@@ -45,7 +45,6 @@
                         <label for="name " class="form-label"> Confirm your password...</label>
                     </div>
                     <i class="fas fa-eye" id="eyes" onclick="checkConpass()"></i>
-
                     </div>
                 </div>
             </div>
@@ -55,21 +54,14 @@
         </div>
         <div class="row choose"> Choose your position </div>
         <div class="btn-group btn-group-toggle pos" data-toggle="buttons">
-            <label class="btn btn-secondary active m-4" id="op1">
-              <input type="radio" name="options" id="option1" checked value="Owner"> Owner
-            </label>
-            <label class="btn btn-secondary m-4" id="op2">
-              <input type="radio" name="options" id="option2" value="Staff"> Staff
-            </label>
-            <label class="btn btn-secondary m-4" id="op3">
-              <input type="radio" name="options" id="option3" value="Viewer"> Viewer
-            </label>
+            <select class="custom-select my-4 px-5" id="inputGroupSelect01">
+                <option selected>Choose...</option>
+                <option value="Owner"> Owner </option>
+                <option value="Staff"> Staff </option>
+                <option value="Viewer"> Viewer </option>
+              </select>
         </div>
-        <div class="row custom-file" id="file">
-            <input type="file" class="custom-file-input" id="customFile">
-            <label class="custom-file-label" for="customFile">Choose your picture</label>
-        </div>
-        <div class="row row-btn">
+        <div class="row row-btn mt-4">
             <div class="col">
                 <button type="button" class="btn btn-secondary btn-lg" id="btn-reg"> 
                     <a href="../quanlymuavu-login/muavulogin.html" class="nav-link" >Register Now</a>  </button>
@@ -87,6 +79,6 @@
     crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="./js-muavuregis.js"></script>
+    <script src="js-muavuregis.js"></script>
   </body>
 </html>
