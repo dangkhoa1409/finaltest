@@ -26,7 +26,7 @@ $.ajax({
                         } else if(data[i].role == 'Staff') {
                             login.attr("href", "../staff/quanliuser.html")
                         } else {
-                            alert("Bạn không có quyền đăng nhập vào đây");
+                            alert("Bạn không có quyền truy cập");
                         }
                     }
                 }
