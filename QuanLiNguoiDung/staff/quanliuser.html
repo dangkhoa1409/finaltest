@@ -87,14 +87,22 @@
         <!-- Sua -->
         <div class="editModal">
             <h2 class="text-center">Sửa người dùng</h2>
-            <in$("put type="text" disabled class="txtId">
+            <label for="">User ID</label>
+            <input type="text" disabled class="txtId">
             <label >Nhập tên người dùng mới</label>
-            <input class="nameEdit" type="text" placeholder="Nhập tên người dùng mới">
+            <input class="nameEdit" type="text" placeholder="Name...">
             <label >Nhập User mới</label>
-            <input class="userEdit" type="dateStart" placeholder="Nhập User mới">
+            <input class="userEdit" type="dateStart" placeholder="Username...">
             <label >Nhập Password mới</label>
-            <input class="passEdit" type="dateEnd" placeholder="Nhập Password mới">
-            <div class="button d-flex justify-content-end">
+            <input class="passEdit" type="dateEnd" placeholder="Password...">
+            <label for="">Chọn quyền mới</label>
+            <select class="custom-select roleEdit" id="inputGroupSelect01">
+                <option selected> Choose... </option>
+                <option value="Owner"> Owner </option>
+                <option value="Staff"> Staff </option>
+                <option value="Viewer"> Viewer </option>
+            </select>
+            <div class="button d-flex justify-content-end mt-3">
                 <button class="editCancel btn btn-secondary">Cancel</button>
                 <button id="editSuccess" class="btn btn-primary ml-3">Edit</button>
             </div>

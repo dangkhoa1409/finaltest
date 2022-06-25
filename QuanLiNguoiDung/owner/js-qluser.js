@@ -22,13 +22,13 @@ function loadData() {
         for(let i=0 ; i < data.length ; i++){
             let edit = `<button class="feature" id="edit" onclick=edit(${data[i].id}) type="button"><i class="fa-solid fa-pen-to-square"></i></button>`;
             let remove = `<button class="feature" id="remove" type="button" onclick=remove(${data[i].id})><i class="fa-solid fa-trash-can"></i></button>`;
-            let picture = `<input type="image" src="${data[i].picture}" alt="" class='api-picture'>`;
+            let img = `<img class='api-picture' src="${data[i].picture}" alt=""`;
             let strTemp = "<tr> <th scope='row' class='align-middle'>" + data[i].id + "</th>"
                 + "<td class='border align-middle'>" + data[i].name + "</td>"
                 + "<td class='border align-middle'>" + data[i].username + "</td>"
                 + "<td class='border align-middle'>" + data[i].password+ "</td>"
                 + "<td class='border align-middle'>" + data[i].role + "</td>"
-                + "<td class='border align-middle'>" + picture + "</td>"
+                + "<td class='border align-middle'>" + img + "</td>"
                 + "<td class='border align-middle'>" + edit + remove + "</td> </tr>";
                 emptyStr += strTemp;
         }
@@ -80,26 +80,28 @@ $("#editSuccess").click(function(){
     var id = $(".txtId").val();
     obj.name = $(".editModal .nameEdit").val();
     obj.username = $(".editModal .userEdit").val();
-    obj.password = $(".editModal .passEdit").val()
+    obj.password = $(".editModal .passEdit").val();
+    obj.role = $(".editModal .roleEdit").val();
     console.log(obj)
-    $.ajax({
-        url: "https://627dc59db75a25d3f3ab7c94.mockapi.io/user/" + id,
-        type: "PUT",
-        data: obj,
-        success:function(result){
-            $(".editModal").hide()
-            loadData();
-        }
-    })
+    if(obj.name == '' || obj.username == '' || obj.password == '' || obj.role == 'Choose...'){
+        alert("Vui lòng nhập đầy đủ thông tin");
+    } else {
+        $.ajax({
+            url: "https://627dc59db75a25d3f3ab7c94.mockapi.io/user/" + id,
+            type: "PUT",
+            data: obj,
+            success:function(result){
+                $(".editModal").hide()
+                loadData();
+            }
+        })
+    }
 })
 function edit(id){
     for(let i = 0; i<arrEle.length;i++){
         if(arrEle[i].id == id){
             $(".editModal").show();
             $(".txtId").val(arrEle[i].id);
-            $(".editModal .nameEdit").val(arrEle[i].name)
-            $(".editModal .userEdit").val(arrEle[i].username)
-            $(".editModal .passEdit").val(arrEle[i].password)
             break;
         }
     }

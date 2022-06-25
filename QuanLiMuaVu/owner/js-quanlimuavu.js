@@ -65,7 +65,6 @@ function searchElement() {
                 $("#search").val('');
             }
         }
-
         let edit = `<button class="feature" id="edit" onclick=edit(${data[value].id}) type="button"><i class="fa-solid fa-pen-to-square"></i></button>`;
         let final = `<button class="feature" id="last" type="button" onclick=final(${data[value].id})><i class="fa-solid fa-circle-check"></i></button>`
         let remove = `<button class="feature" id="remove" type="button" onclick=remove(${data[value].id})><i class="fa-solid fa-trash-can"></i></button>`;
@@ -121,15 +120,19 @@ $("#editSuccess").click(function() {
     editData.dateEnd = $(".editModal .dateEnd").val();
     editData.state = $(".editModal .state").val();
     console.log(id);
-    $.ajax({
-        url: "https://62b269f320cad3685c8db9c1.mockapi.io/farmManager/" + id,
-        type: "PUT",
-        data: editData,
-        success: function() {
-            $(".editModal").hide();
-            loadData();
-        }
-    })
+    if(editData.seasonName == '' || editData.dateStart == '' || editData.dateEnd == '' || editData.state == '') {
+        alert("Vui lòng nhập đầy đủ thông tin");
+    } else {
+        $.ajax({
+            url: "https://62b269f320cad3685c8db9c1.mockapi.io/farmManager/" + id,
+            type: "PUT",
+            data: editData,
+            success: function() {
+                $(".editModal").hide();
+                loadData();
+            }
+        })
+    }
 })
 //sửa : end
 
@@ -217,14 +220,18 @@ $("#finalSuccess").click(function() {
     finalData.quantity = $(".finalModal .quantity").val();
     finalData.state = $(".finalModal .state").val();
     finalData.dateEnd = $(".finalModal .dateEnd").val(); //+ `T${hours}:${minutes}:${seconds}.${miliseconds}Z`
-    $.ajax({
-        url: "https://62b269f320cad3685c8db9c1.mockapi.io/farmManager/" + id,
-        type: "PUT",
-        data: finalData,
-        success: function() {
-            $(".finalModal").hide();
-            loadData();
-        }
-    })
+    if(finalData.quantity == '' || finalData.state == '' || finalData.dateEnd == ''){
+        alert("Vui lòng nhập đầy đủ thông tin");
+    } else {
+        $.ajax({
+            url: "https://62b269f320cad3685c8db9c1.mockapi.io/farmManager/" + id,
+            type: "PUT",
+            data: finalData,
+            success: function() {
+                $(".finalModal").hide();
+                loadData();
+            }
+        })
+    }
 });
 //Final : end

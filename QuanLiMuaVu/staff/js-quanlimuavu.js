@@ -121,15 +121,19 @@ $("#editSuccess").click(function() {
     editData.dateEnd = $(".editModal .dateEnd").val();
     editData.state = $(".editModal .state").val();
     console.log(id);
-    $.ajax({
-        url: "https://62b269f320cad3685c8db9c1.mockapi.io/farmManager/" + id,
-        type: "PUT",
-        data: editData,
-        success: function() {
-            $(".editModal").hide();
-            loadData();
-        }
-    })
+    if(editData.seasonName == '' || editData.dateStart == '' || editData.dateEnd == '' || editData.state == '') {
+        alert("Vui lòng nhập đầy đủ thông tin");
+    } else {
+        $.ajax({
+            url: "https://62b269f320cad3685c8db9c1.mockapi.io/farmManager/" + id,
+            type: "PUT",
+            data: editData,
+            success: function() {
+                $(".editModal").hide();
+                loadData();
+            }
+        })
+    }
 })
 //sửa : end
 
@@ -217,14 +221,18 @@ $("#finalSuccess").click(function() {
     finalData.quantity = $(".finalModal .quantity").val();
     finalData.state = $(".finalModal .state").val();
     finalData.dateEnd = $(".finalModal .dateEnd").val(); //+ `T${hours}:${minutes}:${seconds}.${miliseconds}Z`
-    $.ajax({
-        url: "https://62b269f320cad3685c8db9c1.mockapi.io/farmManager/" + id,
-        type: "PUT",
-        data: finalData,
-        success: function() {
-            $(".finalModal").hide();
-            loadData();
-        }
-    })
+    if(finalData.quantity == '' || finalData.state == '' || finalData.dateEnd == '') {
+        alert("Vui lòng nhập đầy đủ thông tin");
+    } else {
+        $.ajax({
+            url: "https://62b269f320cad3685c8db9c1.mockapi.io/farmManager/" + id,
+            type: "PUT",
+            data: finalData,
+            success: function() {
+                $(".finalModal").hide();
+                loadData();
+            }
+        })
+    }
 });
 //Final : end

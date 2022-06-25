@@ -7,6 +7,7 @@ $.ajax({
     datatype: "json",
     success:function(data){
         let showAlert = true;
+        let showAlert2 = true;
         for(let i = 0; i < data.length; i++){
             console.log(data);
             $(".lgin").click(function(){
@@ -21,6 +22,7 @@ $.ajax({
                     }
                 } else {
                     if(username == data[i].username && pass == data[i].password){
+                        showAlert2 = false;
                         if(data[i].role == 'Owner') {
                             login.attr("href", "../owner/quanliuser.html");
                         } else if(data[i].role == 'Staff') {
@@ -31,8 +33,7 @@ $.ajax({
                     }
                 }
             })
-        }
-        
+        }  
     }
 })
 function checkpass(){

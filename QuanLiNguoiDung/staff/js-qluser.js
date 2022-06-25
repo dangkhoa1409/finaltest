@@ -80,25 +80,28 @@ $("#editSuccess").click(function(){
     obj.name = $(".editModal .nameEdit").val();
     obj.username = $(".editModal .userEdit").val();
     obj.password = $(".editModal .passEdit").val()
+    obj.role = $(".editModal .roleEdit").val();
     console.log(obj)
-    $.ajax({
-        url: "https://627dc59db75a25d3f3ab7c94.mockapi.io/user/" + id,
-        type: "PUT",
-        data: obj,
-        success:function(result){
-            $(".editModal").hide()
-            loadData();
-        }
-    })
+    if(obj.name == '' || obj.username == '' || obj.password == '' || obj.role == 'Choose...'){
+        alert("Vui lòng nhập đầy đủ thông tin");
+    } else {
+        $.ajax({
+            url: "https://627dc59db75a25d3f3ab7c94.mockapi.io/user/" + id,
+            type: "PUT",
+            data: obj,
+            success:function(result){
+                $(".editModal").hide()
+                loadData();
+            }
+        })
+    }
 })
+
 function edit(id){
     for(let i = 0; i<arrEle.length;i++){
         if(arrEle[i].id == id){
             $(".editModal").show();
             $(".txtId").val(arrEle[i].id);
-            $(".editModal .nameEdit").val(arrEle[i].name)
-            $(".editModal .userEdit").val(arrEle[i].username)
-            $(".editModal .passEdit").val(arrEle[i].password)
             break;
         }
     }

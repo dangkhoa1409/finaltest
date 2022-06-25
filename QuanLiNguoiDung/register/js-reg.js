@@ -9,28 +9,28 @@ class Student {
     this.role = role;
     }
 }
-$(document).ready(function () {
-    $("#btn-reg").click(function(){
-        let name = $("#name").val();
-        let username = $("#username").val();
-        let pass = $("#pass").val();
-        let role = $("#inputGroupSelect01").val();
-        let newStudent = new Student(name, username, pass, role)
-        if(name === '' || name === undefined || username === '' || username === undefined || pass === '' || pass === undefined || role == 'Choose...') {
-            alert("Vui lòng nhập đầy đủ thông tin");
-            $(".nav-link").attr("href", "");
-        } else {
-            $.ajax({
-                url: "https://627dc59db75a25d3f3ab7c94.mockapi.io/user",
-                type: "POST",
-                data: newStudent,
-                success: function(result) {
-                    console.log(result);
-                    alert("success");
-                }
-            })
-        }
-    });
+
+
+$("#btn-reg").click(function(){
+    let name = $("#name").val();
+    let username = $("#username").val();
+    let pass = $("#pass").val();
+    let role = $("#inputGroupSelect01").val();
+    let newStudent = new Student(name, username, pass, role)
+    if(name === '' || name === undefined || username === '' || username === undefined || pass === '' || pass === undefined || role == 'Choose...') {
+        alert("Vui lòng nhập đầy đủ thông tin");
+        $(".nav-link").attr("href", "");
+    } else {
+        $.ajax({
+            url: "https://627dc59db75a25d3f3ab7c94.mockapi.io/user",
+            type: "POST",
+            data: newStudent,
+            success: function(result) {
+                console.log(result);
+                alert("success");
+            }
+        })
+    }
 });
 
 $("#op1").click(function(){
